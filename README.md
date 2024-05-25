@@ -8,3 +8,9 @@ myActivity.py
 - If using Excel to view the CSV make sure to import it so unicode values are properly decoded.
 - The CSV file will be named data.csv and will be created in the same directory as the script.
 - Usage: myActivity.py <path/to/MyActivity.html>
+
+extract_timestamps.py
+- Will take the path to a full file system zip and the path to a file within the zip file.
+- It will extract the MAC times for the selected file in the zip from the extra field.
+- It will output to the screen.
+- Usage: extract_timestamps.py [-h] zip_path target_filename
