@@ -1,7 +1,7 @@
 # Misc-Scripts
 Miscellaneous Scripts
 
-This repository will contain scripts that I have not integrated into any of the LEAPPs because they take long to run or because they are for edge case uses.
+This repository will contain scripts for single use purposes.
 
 myActivity.py
 - Will take large MyActivity.html files from a Google Return and converted them into a CSV file containing the timestamp, search information, and text content.
