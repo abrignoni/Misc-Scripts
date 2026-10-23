@@ -12,5 +12,7 @@ myActivity.py
 extract_timestamps.py
 - Will take the path to a full file system zip and the path to a file within the zip file.
 - It will extract the MAC times for the selected file in the zip from the extra field.
+- GrayKey style zips store four times: modified, accessed, changed and created (birth). All four are printed.
+- For Cellebrite CLBX zips the times in metadata.msgpack are printed too (needs `pip install msgpack`), since the extra field in the CLBX zips tested holds the access time.
 - It will output to the screen.
 - Usage: extract_timestamps.py [-h] zip_path target_filename
