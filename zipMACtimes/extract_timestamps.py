@@ -30,7 +30,9 @@ import datetime
 import struct
 import zipfile
 
-INT64_MIN = -(2 ** 63)
+# Empty times in CLBX metadata: INT64_MAX was found on the zips tested; INT64_MIN is
+# treated the same way.
+NO_TIME = (2 ** 63 - 1, -(2 ** 63))
 FILETIME_EPOCH = datetime.datetime(1601, 1, 1, tzinfo=datetime.timezone.utc)
 
 
@@ -157,7 +159,7 @@ def main(zip_path, target_filename):
                     for key, label in (('mtime', 'Modified Time'), ('atime', 'Access Time'),
                                        ('ctime', 'Change Time'), ('btime', 'Creation Time (birth)')):
                         value = record.get(key)
-                        if not isinstance(value, int) or value == INT64_MIN:
+                        if not isinstance(value, int) or value in NO_TIME:
                             print(f'  {label}: not recorded')
                         else:
                             seconds, nanos = divmod(value, 1_000_000_000)
